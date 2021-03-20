@@ -3,6 +3,10 @@ import * as ReactDOM from 'react-dom'
 import App from './components/App'
 import './index.css'
 
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './reducers'
+
 function ColorfulBorder() {
   return (
     <React.Fragment>
@@ -17,10 +21,14 @@ function ColorfulBorder() {
   )
 }
 
+const store = createStore(
+  reducer
+)
+
 ReactDOM.render(
-  <React.Fragment>
+  <Provider store={store}>
     <ColorfulBorder />
     <App />
-  </React.Fragment>,
+  </Provider>,
   document.getElementById('root')
 )
