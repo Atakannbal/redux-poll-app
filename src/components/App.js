@@ -10,12 +10,11 @@ export default function App() {
     dispatch(handleInitialData())
   },[dispatch, handleInitialData])
 
-  const store = useSelector((store) => store)
-  console.log('Store', store)
-  
   return (
-    <div>
-      Redux Polls
+    <div className='container'>
+      {loading === true 
+      ? null
+      : <div> Redux Polls </div>}
     </div>
   )
 }
